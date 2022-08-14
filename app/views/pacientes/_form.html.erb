@@ -1,0 +1,72 @@
+<%= form_with(model: @paciente ) do |form| %>
+  <% if paciente.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(paciente.errors.count, "error") %> prohibited this paciente from being saved:</h2>
+
+      <ul>
+        <% paciente.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- Dados Paciente -->
+
+  <div>
+    <%= form.label :nome, style: "display: block" %>
+    <%= form.text_field :nome %>
+  </div>
+
+  <div>
+    <%= form.label :data, style: "display: block" %>
+    <%= form.date_field :data %>
+  </div>
+
+  <div>
+    <%= form.label :cpf, style: "display: block" %>
+    <%= form.text_field :cpf %>
+  </div>
+
+  <div>
+    <%= form.label :email, style: "display: block" %>
+    <%= form.text_field :email %>
+  </div>
+
+  <!-- Endereco Paciente -->
+
+  <%= form.fields_for :endereco do |endereco_form| %>
+  <div>
+    <p>Endereco</p>
+  </div>
+
+  <div>
+    <%= endereco_form.label :cep, style: "display: block" %>
+    <%= endereco_form.text_field :cep %>
+  </div>
+
+  <div>
+    <%= endereco_form.label :cidade, style: "display: block" %>
+    <%= endereco_form.text_field :cidade %>
+  </div>
+
+  <div>
+    <%= endereco_form.label :bairro, style: "display: block" %>
+    <%= endereco_form.text_field :bairro %>
+  </div>
+
+  <div>
+    <%= endereco_form.label :logradoro, style: "display: block" %>
+    <%= endereco_form.text_field :logradoro %>
+  </div>
+
+  <div>
+    <%= endereco_form.label :complemento, style: "display: block" %>
+    <%= endereco_form.text_field :complemento %>
+  </div>
+  <% end %>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
