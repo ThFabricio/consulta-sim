@@ -65,6 +65,6 @@ class MedicosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def medico_params
-      params.require(:medico).permit(:cpf, :email, :especialidade, :crm)
+      params.require(:medico).permit(:nome, :cpf, :email, :especialidade, :crm)
     end
 end
