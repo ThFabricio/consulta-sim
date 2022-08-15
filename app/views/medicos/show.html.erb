@@ -2,6 +2,24 @@
 
 <%= render @medico %>
 
+<h2>Consultas Agendadas</h2>
+<% @medico.consults.each do |consult| %>
+
+  <p>
+    <strong>Paciente</strong>
+    <%= @pacientes[consult.paciente_id-1] %>
+  </p>
+
+  <p>
+    <strong>Data</strong>
+    <%= consult.data %>
+  </p>
+  <p>
+    <strong>Horario</strong>
+    <%= consult.horario %>
+
+<% end %>
+
 <div>
   <%= link_to "Edit this medico", edit_medico_path(@medico) %> |
   <%= link_to "Back to medicos", medicos_path %>

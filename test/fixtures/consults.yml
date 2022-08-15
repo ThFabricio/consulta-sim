@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  data: 2022-08-14
+  horario: 2022-08-14 19:23:20
+
+two:
+  data: 2022-08-14
+  horario: 2022-08-14 19:23:20

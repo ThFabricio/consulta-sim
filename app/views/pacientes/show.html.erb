@@ -2,6 +2,53 @@
 
 <%= render @paciente %>
 
+<p>
+
+<h2>Consultas Agendadas</h2>
+<% @paciente.consults.each do |consult| %>
+
+  <p>
+    <strong>Medico</strong>
+    <%= @medicoNome[consult.medico_id-1] %>
+  </p>
+  <p>
+    <strong>Especialidade</strong>
+    <%= @medicoEspecialidade[consult.medico_id-1] %>
+  </p>
+  <p>
+    <strong>Data</strong>
+    <%= consult.data %>
+  </p>
+  <p>
+    <strong>Horario</strong>
+    <%= consult.horario %>
+  </p>
+    <%= link_to "Cancelar Consulta", [consult.paciente, consult], data: {turbo_method: :delete, turbo_confirm: "Quer Cancela a Consulta?"} %>
+  <br>
+
+<% end %>
+
+<h2> Agendar Consultas </h2>
+<%= form_with model: [@paciente, @paciente.consults.build] do |form| %>
+    <p>
+    <%= form.label :medico_id %><br>
+    <%= form.select :medico_id, @medicos %>
+    </p>
+    <p>
+      <%= form.label :data %><br>
+      <%= form.date_field :data %>
+    </p>
+    <p>
+      <%= form.label :horario %><br>
+      <%= form.time_field :horario %>
+    </p>
+    <p>
+      <%= form.submit %>
+    </p>
+<%end%>
+
+</p>
+
 <div>
   <%= link_to "Edit this paciente", edit_paciente_path(@paciente) %> |
   <%= link_to "Back to pacientes", pacientes_path %>
