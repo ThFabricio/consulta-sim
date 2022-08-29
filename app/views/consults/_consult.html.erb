@@ -1,0 +1,24 @@
+<div id="<%= dom_id consult %>">
+  <p>
+    <strong>Paciente:</strong>
+    <%= @paciente[consult.paciente_id-1] %>
+  </p>
+  <p>
+    <strong>Medico:</strong>
+    <%= @medico[consult.medico_id-1] %>
+  </p>
+  <p>
+    <strong>Especialidade</strong>
+    <%= @medicoEspecialidade[consult.medico_id-1] %>
+  </p>
+  <p>
+    <strong>Data:</strong>
+    <%= consult.data %>
+  </p>
+
+  <p>
+    <strong>Horario:</strong>
+    <%= consult.horario %>
+  </p>
+
+</div>

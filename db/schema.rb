@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_14_222759) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_29_033709) do
   create_table "consults", force: :cascade do |t|
     t.date "data"
     t.time "horario"

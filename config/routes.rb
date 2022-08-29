@@ -2,17 +2,13 @@ Rails.application.routes.draw do
   resources :medicos
   resources :pacientes
   resources :homepage
+  resources :consults
 
   root "homepage#index"
 
 
-  resources :pacientes do
-    resources :consults
-  end
-
-  resources :medicos do
-    resources :consults
-  end
+  resources :pacientes
+  resources :medicos
 
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
