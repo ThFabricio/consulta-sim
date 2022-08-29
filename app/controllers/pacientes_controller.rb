@@ -8,9 +8,7 @@ class PacientesController < ApplicationController
 
   # GET /pacientes/1 or /pacientes/1.json
   def show
-    @medicos = Medico.all.map{|medico| [medico.nome + medico.especialidade, medico.id]}
-    @medicoNome = Medico.all.map{|medico| medico.nome}
-    @medicoEspecialidade = Medico.all.map{|medico| medico.especialidade}
+
   end
 
   # GET /pacientes/new

@@ -1,0 +1,35 @@
+<%= form_with(model: consult) do |form| %>
+  <% if consult.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(consult.errors.count, "error") %> prohibited this consult from being saved:</h2>
+
+      <ul>
+        <% consult.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :paciente_id %><br>
+    <%= form.select :paciente_id, @pacientes %>
+  </div>
+  <div>
+    <%= form.label :medico_id %><br>
+    <%= form.select :medico_id, @medicos %>
+  </div>
+  <div>
+    <%= form.label :data, style: "display: block" %>
+    <%= form.date_field :data %>
+  </div>
+
+  <div>
+    <%= form.label :horario, style: "display: block" %>
+    <%= form.time_field :horario %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
